@@ -1,0 +1,16 @@
+version: 2
+
+sources:
+  - name: fraud_metaflow
+    database: 'raw_db'
+    schema: fraud_metaflow
+    loader: metaflow
+    meta:
+      pipeline: active
+      slo:
+        count: 25
+        period: hour
+    tables:
+      - name: anubis_model_outputs
+        loaded_at_field: created_on
+        description: 'anubis model'
